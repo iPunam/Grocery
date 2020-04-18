@@ -1,0 +1,46 @@
+﻿.savebtn,
+.savebtn::after {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.savebtn {
+    /*background: none;*/
+    /*border: 3px solid #fff;*/
+    position: relative;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+}
+
+    .savebtn::before,
+    .savebtn::after {
+        background: #fff;
+        content: '';
+        position: absolute;
+        z-index: -1;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+
+.savebtn:hover {
+    color: #47bd9a !important;
+    background-color:white;
+}
+    .savebtn:hover:before {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+/*.savebtn::after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0;
+}
+
+.savebtn:hover:after {
+    width: 100%;
+}*/

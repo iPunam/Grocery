@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Room Management</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="icon" href="~/Assets/Images/favicon.ico" type="image/x-icon">
+
+    <environment include="Development">
+        <link href="~/Assets/sweet-alert2/sweetalert2.min.css" rel="stylesheet" />
+        <link href="~/Assets/Plugins/select2/css/select2.min.css" rel="stylesheet" />
+        <link href="~/Assets/Datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+        <link href="~/Assets/Datatables/buttons.bootstrap4.min.css" rel="stylesheet" />
+        <link href="~/Assets/Datatables/responsive.bootstrap4.min.css" rel="stylesheet" />
+        <link href="~/Assets/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+        <link href="~/Assets/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet" />
+        <link href="~/Assets/Plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+        <link href="~/Assets/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+        <link href="~/Assets/Plugins/RWD-Table-Patterns/dist/css/rwd-table.min.css" rel="stylesheet" />
+        <link href="~/Assets/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/Assets/metisMenu/metisMenu.css" rel="stylesheet" />
+        <link href="~/CSS/icons.css" rel="stylesheet" asp-append-version="true" />
+        <link href="~/CSS/style.css" rel="stylesheet" asp-append-version="true" />
+        @*<link href="~/CSS/CustomButtonEffects.css" rel="stylesheet" asp-append-version="true"/>*@
+    </environment>
+    @*<environment exclude="Development">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                  crossorigin="anonymous"
+                  asp-fallback-href="~/lib/Bootstrap/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only"
+                  asp-fallback-test-property="position"
+                  asp-fallback-test-value="absolute"
+                  asp-suppress-fallback-integrity="true">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+                    asp-fallback-src="~/lib/Jquery/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    asp-suppress-fallback-integrity="true"></script>
+
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                    crossorigin="anonymous"
+                    asp-fallback-src="~/lib/Bootstrap/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    asp-suppress-fallback-integrity="true"></script>
+        </environment>*@
+</head>
+<body>
+    <div id="wrapper">
+        <div class="topbar">
+            <div class="topbar-left">
+                <a asp-controller="Home" asp-action="Index" class="logo">
+                    <span class="logo-light">
+                        <img src="~/Assets/Images/logo-light.png" alt="" height="16" />
+                    </span>
+                    <span class="logo-sm">
+                        <img src="~/Assets/Images/logo-sm.png" alt="" height="22" />
+                    </span>
+                </a>
+            </div>
+            <nav class="navbar-custom">
+                <ul class="navbar-right list-inline float-right mb-0">
+                    <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
+                        <form role="search" class="app-search">
+                            <div class="form-group mb-0">
+                                <input type="text" class="form-control" placeholder="Search..">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </li>
+
+                    <!-- full screen -->
+                    <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
+                        <a class="nav-link waves-effect" href="#" id="btn-fullscreen">
+                            <i class="ion ion-md-qr-scanner noti-icon"></i>
+                        </a>
+                    </li>
+
+                    <!-- notification -->
+                    <li class="dropdown notification-list list-inline-item">
+                        <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="ion ion-md-notifications noti-icon"></i>
+                            <span class="badge badge-pill badge-danger noti-icon-badge">3</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
+                            <!-- item-->
+                            <h6 class="dropdown-item-text">
+                                Notifications (258)
+                            </h6>
+                            <div class="slimscroll notification-item-list">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                                    <div class="notify-icon bg-success"><i class="mdi mdi-cart-outline"></i></div>
+                                    <p class="notify-details">Your order is placed<span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-warning"><i class="mdi mdi-message-text-outline"></i></div>
+                                    <p class="notify-details">New Message received<span class="text-muted">You have 87 unread messages</span></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-info"><i class="mdi mdi-glass-cocktail"></i></div>
+                                    <p class="notify-details">Your item is shipped<span class="text-muted">It is a long established fact that a reader will</span></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+                                    <p class="notify-details">Your order is placed<span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>
+                                </a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-danger"><i class="mdi mdi-message-text-outline"></i></div>
+                                    <p class="notify-details">New Message received<span class="text-muted">You have 87 unread messages</span></p>
+                                </a>
+                            </div>
+                            <!-- All-->
+                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-all">
+                                View all <i class="fi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="dropdown notification-list list-inline-item">
+                        <div class="dropdown notification-list nav-pro-img">
+                            <a class="dropdown-toggle nav-link arrow-none nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <img src="~/Assets/Images/user-4.jpg" alt="user" class="rounded-circle" />
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                                <!-- item-->
+                              @*  <a class="dropdown-item" asp-controller="User" asp-action="Edit" asp-route-id="@userManager.GetUserId(User)"><i class="mdi mdi-account-circle"></i> Profile</a>*@
+                                <a class="dropdown-item d-block" href="#" data-toggle="modal" data-target=".bs-example-modal-center"><i class="mdi mdi-settings"></i> Configurations</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" asp-controller="Account" asp-action="LogOut"><i class="mdi mdi-power text-danger"></i> Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="list-inline menu-left mb-0">
+                    <li class="float-left">
+                        <button class="button-menu-mobile open-left waves-effect">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+                    </li>
+                    <li class="d-none">
+                        <div class="dropdown pt-3 d-inline-block">
+                            <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Create
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="left side-menu">
+            <div class="slimscroll-menu" id="remove-scroll">
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu" id="side-menu">
+                        <li class="menu-title">Overview</li>
+                        <li>
+                            <a asp-controller="Home" asp-action="Index" class="waves-effect">
+                                <i class="ion ion-md-speedometer"></i><span class="badge badge-success badge-pill float-right">2</span> <span> Dashboard </span>
+                            </a>
+                        </li>
+                        <li class="menu-title">Apps</li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-settings"></i><span> Configuration <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                            <ul class="submenu">
+                                <li><a asp-controller="ProductConfig" asp-action="Index" asp-route-Type="Category"><i class="far fa-dot-circle width-20"></i><span>Product Category</span></a></li>
+                                <li><a asp-controller="ProductConfig" asp-action="Index" asp-route-Type="Brand"><i class="far fa-dot-circle width-20"></i><span>Product Brand</span></a></li>
+                                <li><a asp-controller="ProductConfig" asp-action="Index" asp-route-Type="UOM"><i class="far fa-dot-circle width-20"></i><span>Units Of Measurement</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="ion ion-md-mail"></i><span> Master <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                            <ul class="submenu">
+                                <li><a><i class="fas fa-users mr-2 width-20"></i><span>Users</span></a></li>
+                                <li><a><i class="fas fa-user-tie mr-2 width-20"></i><span>Contacts</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+                <div class="clearfix"></div>
+            </div>
+            <!-- Sidebar -left -->
+        </div>
+        <div class="content-page">
+            <!-- Start content -->
+            <div>
+                @*@await Component.InvokeAsync("Configurations")*@
+                @RenderBody()
+            </div>
+            <footer class="footer">
+                © 2019 Veltrix <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by Punam</span>.
+            </footer>
+        </div>
+    </div>
+    @*<environment include="Development">
+           <script src="~/Assets/Jquery/jquery.js"></script>
+           <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+           <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+           <script src="~/Assets/Bootstrap/js/bootstrap.bundle.js"></script>
+           <script src="~/Assets/metisMenu/metisMenu.js"></script>
+           <script src="~/Assets/jQuery-slimScroll/jquery.slimscroll.js"></script>
+           <script src="~/Assets/JS/waves.min.js"></script>
+           <script src="~/Assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+           <script src="~/Assets/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+           <script src="~/Assets/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+           <script src="~/Assets/apexcharts/apexcharts.min.js"></script>
+           <script src="~/Assets/peity/jquery.peity.js"></script>
+           <script src="~/Assets/JS/dashboard.js"></script>
+           <script src="~/Assets/JS/app.js"></script>
+
+           <!-- Required datatable js -->
+        <script src="~/Assets/Datatables/jquery.dataTables.min.js"></script>
+        <script src="~/Assets/Datatables/dataTables.bootstrap4.min.js"></script>
+        <!-- Buttons examples -->
+        <script src="~/Assets/Datatables/dataTables.buttons.min.js"></script>
+        <script src="~/Assets/Datatables/buttons.bootstrap4.min.js"></script>
+        <script src="~/Assets/Datatables/jszip.min.js"></script>
+        <script src="~/Assets/Datatables/pdfmake.min.js"></script>
+        <script src="~/Assets/Datatables/vfs_fonts.js"></script>
+        <script src="~/Assets/Datatables/buttons.html5.min.js"></script>
+        <script src="~/Assets/Datatables/buttons.print.min.js"></script>
+        <script src="~/Assets/Datatables/buttons.colVis.min.js"></script>
+        <!-- Responsive examples -->
+        <script src="~/Assets/Datatables/dataTables.responsive.min.js"></script>
+        <script src="~/Assets/Datatables/responsive.bootstrap4.min.js"></script>
+
+        <script src="~/Assets/Datatables/datatables.init.js"></script>
+        </environment>*@
+
+    <script src="~/JS/Common.js" asp-append-version="true"></script>
+
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts", true);
+    }
+</body>
+</html>

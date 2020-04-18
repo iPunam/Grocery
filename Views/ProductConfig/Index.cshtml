@@ -1,0 +1,85 @@
+﻿@model IEnumerable<ProductConfig>
+@{
+    string strConfigType = ViewBag.ConfigType;
+    ViewData["Title"] = "Product "+ strConfigType;
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="page-title-box">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <h4 class="page-title">Product @strConfigType</h4>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);"><i class="mdi mdi-home-outline"></i></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Configuration</a></li>
+                        <li class="breadcrumb-item active">Product @strConfigType</li>
+                    </ol>
+                </div>
+                <div class="col-sm-6">
+                    <div class="float-right">
+                        <div class="dropdown">
+                            <a class="btn btn-primary" asp-controller="ProductConfig" asp-action="Config" asp-route-Type="@strConfigType">
+                                <i class="mdi mdi-plus-circle mr-2"></i> New
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title">Product @strConfigType Summary</h4>
+                        <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                            <thead>
+                                <tr class="bg-primary text-white font-weight-bold">
+                                    <th>@strConfigType Name</th>
+                                    <th>@strConfigType Description</th>
+                                    <th>@strConfigType Index</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td><a asp-controller="ProductConfig" asp-action="Config" asp-route-id="@item.ID" asp-route-Type="@strConfigType" class="btn btn-link text-danger">@item.Name</a></td>
+                                        <td>@item.Desc</td>
+                                        <td>@item.Index</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+    </div>
+</div>
+
+<script src="~/Assets/Jquery/jquery.min.js"></script>
+<script src="~/Assets/Bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Assets/metisMenu/metisMenu.min.js"></script>
+<script src="~/Assets/jQuery-slimScroll/jquery.slimscroll.js"></script>
+<script src="~/Assets/JS/waves.min.js"></script>
+
+<!-- Required datatable js -->
+<script src="~/Assets/Datatables/jquery.dataTables.min.js"></script>
+<script src="~/Assets/Datatables/dataTables.bootstrap4.min.js"></script>
+<!-- Buttons examples -->
+<script src="~/Assets/Datatables/dataTables.buttons.min.js"></script>
+<script src="~/Assets/Datatables/buttons.bootstrap4.min.js"></script>
+<script src="~/Assets/Datatables/jszip.min.js"></script>
+<script src="~/Assets/Datatables/pdfmake.min.js"></script>
+<script src="~/Assets/Datatables/vfs_fonts.js"></script>
+<script src="~/Assets/Datatables/buttons.html5.min.js"></script>
+<script src="~/Assets/Datatables/buttons.print.min.js"></script>
+<script src="~/Assets/Datatables/buttons.colVis.min.js"></script>
+<!-- Responsive examples -->
+<script src="~/Assets/Datatables/dataTables.responsive.min.js"></script>
+<script src="~/Assets/Datatables/responsive.bootstrap4.min.js"></script>
+
+<script src="~/Assets/Datatables/datatables.init.js"></script>
+<script src="~/Assets/JS/app.js"></script>
+

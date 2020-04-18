@@ -1,0 +1,94 @@
+﻿@model ProductConfig
+@{
+    string strConfigType = ViewBag.ConfigType;
+    ViewData["Title"] = strConfigType + " Details";
+}
+<div class="content">
+    <div class="container-fluid">
+        <form method="post" asp-action="Config" asp-controller="ProductConfig" asp-route-Type="@strConfigType">
+            <div class="page-title-box">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <h4 class="page-title">Product @strConfigType Details</h4>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0);"><i class="mdi mdi-home-outline"></i></a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Configuration</a></li>
+                            <li class="breadcrumb-item active">Product @strConfigType</li>
+                        </ol>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="float-right">
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-danger text-white fs-19" id="sa-params"><i class="mdi mdi-delete mr-2"></i>Delete</button>
+                                <button type="submit" class="d-none" name="command" value="Delete" id="sa-delete">Delete</button>
+                            </div>
+                        </div>
+                        <div class="float-right mr-2">
+                            <div class="dropdown">
+                                <button type="submit" class="btn btn-success text-white fs-19" name="command" value="Save"><i class="mdi mdi-content-save-edit mr-2"></i> Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end row -->
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="ID" class="col-form-label d-none"></label>
+                                        <input asp-for="ID" type="text" class="form-control d-none">
+                                        <label asp-for="Name" class="col-form-label">@strConfigType Name</label>
+                                        <input asp-for="Name" type="text" placeholder="Enter @strConfigType Name Here" class="form-control">
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Desc" class="col-form-label">@strConfigType Description</label>
+                                        <input asp-for="Desc" type="text" placeholder="Enter @strConfigType Description Here" class="form-control">
+                                        <span asp-validation-for="Desc" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Index" class="col-form-label">@strConfigType Index</label>
+                                        <input asp-for="Index" type="text" placeholder="Enter @strConfigType Index Here" class="form-control">
+                                        <span asp-validation-for="Index" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="~/Assets/Jquery/jquery.js"></script>
+<script src="~/lib/jquery-validate/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<script src="~/Assets/Bootstrap/js/bootstrap.bundle.js"></script>
+<script src="~/Assets/metisMenu/metisMenu.js"></script>
+<script src="~/Assets/jQuery-slimScroll/jquery.slimscroll.js"></script>
+<script src="~/Assets/JS/waves.min.js"></script>
+<script src="~/Assets/Plugins/select2/js/select2.min.js"></script>
+<script src="~/Assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="~/Assets/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<script src="~/Assets/Plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js"></script>
+<script src="~/Assets/Plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+<script src="~/Assets/Plugins/emoji-picker-master/js/config.js"></script>
+<script src="~/Assets/Plugins/emoji-picker-master/js/util.js"></script>
+<script src="~/Assets/Plugins/emoji-picker-master/js/jquery.emojiarea.js"></script>
+<script src="~/Assets/Plugins/emoji-picker-master/js/emoji-picker.js"></script>
+
+<script src="~/Assets/sweet-alert2/sweetalert2.min.js"></script>
+<script src="~/Assets/sweet-alert2/sweet-alert.init.js" asp-append-version="true"></script>
+
+
+<script src="~/Assets/JS/form-advanced.init.js"></script>
+<script src="~/Assets/JS/app.js"></script>

@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "twitter-bootstrap@4.3.1",
+      "destination": "wwwroot/Assets/Bootstrap/",
+      "files": [
+        "css/bootstrap-grid.css",
+        "css/bootstrap-reboot.css",
+        "css/bootstrap.css",
+        "css/bootstrap.min.css",
+        "js/bootstrap.bundle.js",
+        "js/bootstrap.js",
+        "js/bootstrap.min.js"
+      ]
+    },
+    {
+      "library": "jquery@3.4.1",
+      "destination": "wwwroot/Assets/Jquery/",
+      "files": [
+        "jquery.slim.js",
+        "core.js",
+        "jquery.js",
+        "jquery.min.js"
+      ]
+    },
+    {
+      "library": "jqueryui@1.12.1",
+      "destination": "wwwroot/jqueryui/"
+    },
+    {
+      "library": "popper.js@1.15.0",
+      "destination": "wwwroot/popper.js/",
+      "files": [
+        "popper.min.js",
+        "popper.js"
+      ]
+    },
+    {
+      "library": "jQuery-slimScroll@1.3.8",
+      "destination": "wwwroot/Assets/jQuery-slimScroll/"
+    },
+    {
+      "library": "bootstrap-datepicker@1.9.0",
+      "destination": "wwwroot/Assets/bootstrap-datepicker/",
+      "files": [
+        "js/bootstrap-datepicker.min.js",
+        "css/bootstrap-datepicker.css",
+        "css/bootstrap-datepicker.min.css",
+        "js/bootstrap-datepicker.js"
+      ]
+    },
+    {
+      "library": "metisMenu@3.0.4",
+      "destination": "wwwroot/Assets/metisMenu/",
+      "files": [
+        "metisMenu.min.js",
+        "metisMenu.css",
+        "metisMenu.js",
+        "metisMenu.min.css"
+      ]
+    },
+    {
+      "library": "peity@3.3.0",
+      "destination": "wwwroot/Assets/peity/"
+    },
+    {
+      "library": "jquery-validate@1.19.1",
+      "destination": "wwwroot/lib/jquery-validate/"
+    }
+  ,
+{
+  "library": "jquery-validation-unobtrusive@3.2.11",
+  "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
+}
+]
+}
